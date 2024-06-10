@@ -7,6 +7,7 @@ import 'package:flutter_application_1/const/constant.dart';
 import 'package:flutter_application_1/const/text_style.dart';
 import 'package:flutter_application_1/login/emailLogin.dart';
 import 'package:flutter_application_1/main.dart';
+import 'package:flutter_application_1/pages/MainScreen.dart';
 import 'package:flutter_application_1/pages/homePage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:local_auth_platform_interface/local_auth_platform_interface.dart';
@@ -64,7 +65,7 @@ class _loginAccountState extends State<loginAccount> {
         Navigator.push(
           context,
         MaterialPageRoute(
-          builder: (context) => MyHomePage(title: 'title'),
+          builder: (context) => MyMainPage(title: 'title'),
         ),
         );
       },

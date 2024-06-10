@@ -64,7 +64,7 @@ class _DoneResetPasswordPageState extends State<DoneResetPasswordPage> {
                       width:360, height:60,
                       child: FilledButton(
                         onPressed: (){
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(builder: (context) => loginAccount(),
                             ),

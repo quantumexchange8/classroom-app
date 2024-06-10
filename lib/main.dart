@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/const/bottomNaviBar.dart';
+import 'package:flutter_application_1/const/constant.dart';
 import 'package:flutter_application_1/const/text_style.dart';
 import 'package:flutter_application_1/login/loginAccount.dart';
+import 'package:flutter_application_1/pages/MainScreen.dart';
+import 'package:flutter_application_1/pages/UserProfile.dart';
+import 'package:flutter_application_1/pages/homePage.dart';
+import 'package:flutter_application_1/pages/searchPage.dart';
+import 'package:flutter_application_1/pages/thirdPage.dart';
 import 'package:flutter_application_1/signUp/createNewAccount.dart';
 
 void main() {
@@ -21,115 +28,46 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Classroom'),
+      home: const MyMainPage(title: 'Classroom'), 
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+/*class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  
-
+class _BottomNavBarState extends State<BottomNavBar> {
+  int currentPageIndex = 0;
+  final screens = [
+    homePage(), searchPage(), thirdPage(), UserProfile(),
+    ];
   @override
   Widget build(BuildContext context) {
-    
-
-   
-    return GestureDetector(
-      onTap: ()=> FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: DecoratedBox(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/image/image3.jpeg"), fit: BoxFit.fill,
-            ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 500),
-                  Text('Welcome to Classroom',
-                  style: largeTitle,
-                  ),
-              
-                  const SizedBox(height: 15,),
-              
-                  Text('Joint over 10,000 learners over the World and \n enjoy online education!', 
-                  textAlign: TextAlign.center,
-                  style: textWhite,
-                  ),
-                  
-              
-                  const SizedBox(height: 25,), 
-              
-                  SizedBox(
-                    width:380, height:60,
-                    child: FilledButton(
-                      onPressed: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => createNewAccount()
-                          ),
-                        );
-                      }, 
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)
-                          ),
-                          ),
-                      ),
-                      
-                      child: const Text('Create an account', 
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black, fontSize: 15),
-                      )
-                      ),
-                  ),
-                    
-                    const SizedBox(height: 8,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Already have an account?',
-                          style: textWhite2,
-                          ), 
-                          
-                        
-                        TextButton(
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => loginAccount(),
-                              ),
-                            );
-                          }, 
-                          child: Text('Log in',
-                          style: fontWhite,
-                          ),
-                          ),
-                      ],
-                    ),
-               
-              
-              ],
-              ),
-            ],
-          ),
+    return Scaffold(
+      body: IndexedStack(
+        index: currentPageIndex,
+        children: screens,
         ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        backgroundColor: primaryPurple.shade100,
+        selectedItemColor: primaryPurple.shade500,
+        unselectedItemColor: primaryPurple.shade200,
+        currentIndex: currentPageIndex,
+        onTap: (index)=> setState(() => currentPageIndex = index),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
+          BottomNavigationBarItem(icon: Icon(Icons.widgets_outlined), label: 'xxxx'),
+          BottomNavigationBarItem(icon: Icon(Icons.perm_identity), label: 'profile'),
+        ],
       ),
+
     );
   }
-}
+}*/
+

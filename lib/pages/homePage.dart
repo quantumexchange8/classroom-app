@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/const/bottomNaviBar.dart';
 import 'package:flutter_application_1/const/constant.dart';
 import 'package:flutter_application_1/const/text_style.dart';
 import 'package:flutter_application_1/login/loginAccount.dart';
 import 'package:flutter_application_1/main.dart';
+import 'package:flutter_application_1/pages/MainScreen.dart';
+
 
 class homePage extends StatefulWidget {
   
@@ -15,6 +18,7 @@ class homePage extends StatefulWidget {
 
 class _homePageState extends State<homePage> {
   
+  
   @override
   Widget build(BuildContext context) {
     //String email = widget.email;
@@ -25,6 +29,7 @@ class _homePageState extends State<homePage> {
         style: heading1,
         ),
       ),
+      
 
       body:SingleChildScrollView(
         child: Padding(
@@ -43,7 +48,7 @@ class _homePageState extends State<homePage> {
                       decoration: BoxDecoration(
                         image: DecorationImage(image: AssetImage('assets/image/profile_pic.png'),
                         fit: BoxFit.cover,
-                        )
+                        ),
                       ),
                       ),
               
@@ -386,7 +391,7 @@ class _homePageState extends State<homePage> {
                                 Navigator.pushReplacement(
                                   context, 
                                   MaterialPageRoute(
-                                    builder: (context)=> MyHomePage(title: 'title',),),
+                                    builder: (context)=> MyMainPage(title: 'title',),),
                                     );
                               }, 
                               style: ButtonStyle(
@@ -424,19 +429,16 @@ class _homePageState extends State<homePage> {
 
                     ],
                   ),
-              
-              
-              
-              
-              
-              
+            
               
             ],
           ),
         ),
-      ),
+        
+      ),  
 
     );
+    
   }
 
  
